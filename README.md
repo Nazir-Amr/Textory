@@ -1,4 +1,4 @@
-## 📸 Screenshots
+## Screenshots
 
 ### Main Interface
 ![Main Interface](Screenshots/main.png)
@@ -33,7 +33,7 @@ Whether used in technical support, software development, or personal organizatio
 
 ---
 
-## 🇩🇪 Deutsch
+## DE Deutsch
 
 Textory ist eine leichtgewichtige Desktop-Anwendung zur Verwaltung von wiederverwendbaren Textbausteinen, Notizen und vordefinierten Antworten.
 
