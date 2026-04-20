@@ -1,16 +1,16 @@
 ## Screenshots
 
 ### Light Mode
-![Light Mode](Screenshots/Main Interface – Light Mode.png)
+![Light Mode](Screenshots/Main-Interface-Light-Mode.png)
 
 ### Dark Mode
-![Dark Mode](Screenshots/Main Interface – Dark Mode.png)
+![Dark Mode](Screenshots/Main-Interface-Dark-Mode.png)
 
 ### Add / Edit Snippet
-![Add Edit](Screenshots/Rich Text Formatting.png)
+![Add Edit](Screenshots/Rich-Text-Formatting.png)
 
 ### Settings
-![Settings](Screenshots/settings.png)
+![Settings](Screenshots/Settings.png)
 
 
 ---
