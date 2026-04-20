@@ -10,7 +10,7 @@
 ![Add Edit](Screenshots/Rich-Text-Formatting.png)
 
 ### Settings
-![Settings](Screenshots/Settings.png)
+![Settings](Screenshots/Setting.png)
 
 
 ---
