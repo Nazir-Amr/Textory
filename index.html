@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══ SEO ══ -->
+  <title>Textory – Smart & Efficient Text Snippet Manager for Desktop</title>
+  <meta name="description" content="Textory is a free, offline desktop application for managing reusable text snippets. Save, search, copy, and organize text cards with rich formatting — 100% local, no cloud needed.">
+  <meta name="keywords" content="text snippet manager, clipboard manager, desktop app, offline text tool, reusable text, Python desktop app, productivity tool, text organizer, Textory">
+  <meta name="author" content="Nazir Amr">
+  <meta name="robots" content="index, follow">
+
+  <!-- ══ Open Graph ══ -->
+  <meta property="og:title" content="Textory – Smart & Efficient Text Snippet Manager">
+  <meta property="og:description" content="Free offline desktop app to save, organize, and instantly reuse text snippets. Supports English, German, and Arabic.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nazir-amr.github.io/Textory/">
+
+  <!-- ══ Google Search Console – PASTE YOUR CODE BELOW ══ -->
+  <meta name="google-site-verification" content="PASTE_YOUR_GOOGLE_VERIFICATION_CODE_HERE">
+  <!-- ══════════════════════════════════════════════════ -->
+
+  <!-- ══ Favicon ══ -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
 <style>
   /* ── Reset & Base ── */
   .tx-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,6 +46,13 @@
   .tx-wrap ul li { margin-bottom: 6px; }
   .tx-wrap a  { color: #1a6fad; text-decoration: none; }
   .tx-wrap a:hover { text-decoration: underline; }
+  /* Button text colours — higher specificity to override .tx-wrap a */
+  .tx-wrap a.tx-btn-primary  { color: #0f2944 !important; }
+  .tx-wrap a.tx-btn-ghost    { color: rgba(255,255,255,0.85) !important; }
+  .tx-wrap a.tx-btn-download { color: #fff !important; }
+  .tx-wrap a.tx-btn-primary:hover  { color: #0f2944 !important; }
+  .tx-wrap a.tx-btn-ghost:hover    { color: #fff !important; }
+  .tx-wrap a.tx-btn-download:hover { color: #fff !important; }
 
   /* ── Divider ── */
   .tx-divider {
@@ -59,6 +93,7 @@
     width: 240px; height: 240px;
     background: rgba(255,255,255,0.04);
     border-radius: 50%;
+    pointer-events: none;
   }
   .tx-hero::after {
     content: '';
@@ -67,6 +102,7 @@
     width: 300px; height: 300px;
     background: rgba(255,255,255,0.03);
     border-radius: 50%;
+    pointer-events: none;
   }
   .tx-hero-badge {
     display: inline-block;
@@ -84,9 +120,13 @@
   .tx-hero h1 { color: #fff; margin-bottom: 16px; font-size: 2.8em; }
   .tx-hero h1 span { color: #7ec8f5; }
   .tx-hero p { color: rgba(255,255,255,0.8); font-size: 1.05em; max-width: 540px; margin-bottom: 32px; }
-  .tx-btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .tx-btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; position: relative; z-index: 2; }
+
+  /* ── Buttons – fixed alignment ── */
   .tx-btn-primary {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #fff;
     color: #0f2944;
     font-weight: 700;
@@ -95,11 +135,16 @@
     border-radius: 6px;
     text-decoration: none;
     letter-spacing: 0.3px;
+    line-height: 1.3;
+    text-align: center;
+    white-space: nowrap;
     transition: background 0.2s;
   }
-  .tx-btn-primary:hover { background: #e8f4fd; text-decoration: none; }
+  .tx-btn-primary:hover { background: #e8f4fd; text-decoration: none; color: #0f2944; }
   .tx-btn-ghost {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     color: rgba(255,255,255,0.85);
     font-weight: 600;
@@ -109,6 +154,9 @@
     border: 1px solid rgba(255,255,255,0.35);
     text-decoration: none;
     letter-spacing: 0.3px;
+    line-height: 1.3;
+    text-align: center;
+    white-space: nowrap;
   }
   .tx-btn-ghost:hover { background: rgba(255,255,255,0.08); text-decoration: none; color: #fff; }
 
@@ -199,32 +247,92 @@
   .tx-use-item div h3 { font-size: 0.88em; color: #1a1a2e; margin-bottom: 3px; }
   .tx-use-item div p  { font-size: 0.82em; color: #666; margin: 0; }
 
-  /* ── Screenshots ── */
+  /* ── Screenshots – improved ── */
   .tx-screens-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 16px;
     margin-top: 24px;
   }
+  /* Supports up to 5 images — each shrinks gracefully */
   .tx-screen-item {
-    flex: 1 1 180px;
+    flex: 1 1 240px;
     border: 1px solid #dde3ed;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     background: #f7f9fc;
+    transition: box-shadow 0.2s;
+  }
+  .tx-screen-item:hover { box-shadow: 0 6px 24px rgba(26,111,173,0.15); }
+  .tx-screen-item a.tx-screen-link {
+    display: block;
+    cursor: zoom-in;
   }
   .tx-screen-item img {
     width: 100%;
-    height: 160px;
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
     object-fit: cover;
+    object-position: top;
     display: block;
+    transition: opacity 0.2s;
   }
+  .tx-screen-item:hover img { opacity: 0.92; }
   .tx-screen-caption {
-    font-size: 0.8em;
+    font-size: 0.82em;
     color: #555;
     text-align: center;
-    padding: 8px;
+    padding: 10px 8px;
     border-top: 1px solid #e4e8f0;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── CSS-only Lightbox ── */
+  .tx-lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.88);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .tx-lightbox:target {
+    display: flex;
+  }
+  .tx-lightbox img {
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: 8px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+    object-fit: contain;
+  }
+  .tx-lightbox-close {
+    position: fixed;
+    top: 18px; right: 26px;
+    color: #fff;
+    font-size: 2.4em;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1;
+    opacity: 0.85;
+    z-index: 100000;
+  }
+  .tx-lightbox-close:hover { opacity: 1; text-decoration: none; color: #fff; }
+  .tx-lightbox-caption {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.85em;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    white-space: nowrap;
   }
 
   /* ── Stats strip ── */
@@ -263,7 +371,7 @@
   .tx-privacy-text h2 { color: #fff; font-size: 1.3em; margin-bottom: 8px; }
   .tx-privacy-text p  { color: rgba(255,255,255,0.8); font-size: 0.9em; margin: 0; }
 
-  /* ── Download ── */
+  /* ── Download – fixed button alignment ── */
   .tx-download {
     background: #f7f9fc;
     border: 2px solid #1a6fad;
@@ -274,7 +382,9 @@
   .tx-download h2 { color: #0f2944; margin-bottom: 8px; }
   .tx-download p  { color: #555; margin-bottom: 24px; }
   .tx-btn-download {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #1a6fad;
     color: #fff;
     font-weight: 700;
@@ -283,6 +393,9 @@
     border-radius: 7px;
     text-decoration: none;
     letter-spacing: 0.3px;
+    line-height: 1.3;
+    text-align: center;
+    white-space: nowrap;
     margin-bottom: 14px;
   }
   .tx-btn-download:hover { background: #155d94; text-decoration: none; color: #fff; }
@@ -361,8 +474,39 @@
     .tx-stat:last-child { border-bottom: none; }
     .tx-privacy { padding: 28px 20px; }
     .tx-download { padding: 28px 20px; }
+    .tx-screen-item { flex: 1 1 100%; }
+    .tx-screen-item img { height: 200px; }
+    .tx-btn-row { flex-direction: column; align-items: flex-start; }
   }
 </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     CSS-ONLY LIGHTBOX OVERLAYS
+     (click image → opens overlay; click ✕ or outside → #close resets)
+══════════════════════════════ -->
+<div id="lb-1" class="tx-lightbox" role="dialog" aria-label="Screenshot enlarged">
+  <a href="#close" class="tx-lightbox-close" aria-label="Close">&times;</a>
+  <img src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-212302.png" alt="Textory main interface in light mode – full size view">
+  <span class="tx-lightbox-caption">Main Interface · Light Mode</span>
+</div>
+<div id="lb-2" class="tx-lightbox" role="dialog" aria-label="Screenshot enlarged">
+  <a href="#close" class="tx-lightbox-close" aria-label="Close">&times;</a>
+  <img src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-212640.png" alt="Textory main interface in dark mode – full size view">
+  <span class="tx-lightbox-caption">Main Interface · Dark Mode</span>
+</div>
+<div id="lb-3" class="tx-lightbox" role="dialog" aria-label="Screenshot enlarged">
+  <a href="#close" class="tx-lightbox-close" aria-label="Close">&times;</a>
+  <img src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-213517.png" alt="Textory rich text formatting editor – full size view">
+  <span class="tx-lightbox-caption">Rich Text Formatting</span>
+</div>
+<div id="lb-4" class="tx-lightbox" role="dialog" aria-label="Screenshot enlarged">
+  <a href="#close" class="tx-lightbox-close" aria-label="Close">&times;</a>
+  <img src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/setting.png" alt="Textory settings panel – full size view">
+  <span class="tx-lightbox-caption">Settings Panel</span>
+</div>
+<!-- ADD lb-5 HERE when you have a 5th screenshot image -->
 
 <div class="tx-wrap">
 
@@ -370,11 +514,11 @@
        HERO
   ══════════════════════════════ -->
   <div class="tx-hero">
-    <div class="tx-hero-badge">Desktop Application · v2.0.0</div>
+    <div class="tx-hero-badge">Desktop Application · v3.0.4</div>
     <h1>Smart &amp; Efficient<br><span>Text Management</span></h1>
     <p>Textory helps you save, organize, and instantly reuse your text snippets — fast, private, and completely offline.</p>
     <div class="tx-btn-row">
-      <a class="tx-btn-primary" href="https://github.com/Nazir-Amr/Textory/releases/tag/v2.0.0">↓ Download Textory v2.0.0</a>
+      <a class="tx-btn-primary" href="https://github.com/Nazir-Amr/Textory/releases/tag/v3.0.4">&#8595; Download Textory v3.0.4</a>
       <a class="tx-btn-ghost" href="#features">Explore Features</a>
     </div>
   </div>
@@ -382,7 +526,7 @@
   <!-- ══════════════════════════════
        STATS STRIP
   ══════════════════════════════ -->
-  <div class="tx-stats">
+  <div class="tx-stats" aria-label="Key statistics">
     <div class="tx-stat"><strong>3</strong><span>Languages</span></div>
     <div class="tx-stat"><strong>100%</strong><span>Local &amp; Private</span></div>
     <div class="tx-stat"><strong>0</strong><span>Cloud Dependencies</span></div>
@@ -394,29 +538,29 @@
   <!-- ══════════════════════════════
        OVERVIEW
   ══════════════════════════════ -->
-  <section class="tx-section">
+  <section class="tx-section" aria-labelledby="overview-heading">
     <div class="tx-label">Overview</div>
-    <h2>What is Textory?</h2>
+    <h2 id="overview-heading">What is Textory?</h2>
     <p>Textory is a lightweight desktop application built with Python. It gives you a clean, organized space to store and manage reusable text snippets — responses, code notes, templates, and more — without any cloud service, account, or internet connection required.</p>
 
     <div class="tx-overview-grid">
       <div class="tx-overview-card">
-        <div class="tx-icon">🐍</div>
+        <div class="tx-icon" aria-hidden="true">🐍</div>
         <h3>Built with Python</h3>
         <p>Lightweight and native. Runs directly on your desktop without background services or heavy runtimes.</p>
       </div>
       <div class="tx-overview-card">
-        <div class="tx-icon">💾</div>
+        <div class="tx-icon" aria-hidden="true">💾</div>
         <h3>100% Local Storage</h3>
         <p>Your data never leaves your device. No accounts, no sync, no cloud — just your files, on your machine.</p>
       </div>
       <div class="tx-overview-card">
-        <div class="tx-icon">⚡</div>
+        <div class="tx-icon" aria-hidden="true">⚡</div>
         <h3>Built for Speed</h3>
         <p>Copy, edit, and search in seconds. Optimized for professionals who deal with repetitive text every day.</p>
       </div>
       <div class="tx-overview-card">
-        <div class="tx-icon">🌐</div>
+        <div class="tx-icon" aria-hidden="true">🌐</div>
         <h3>Multilingual</h3>
         <p>English, German, and Arabic — with proper right-to-left layout support for Arabic users.</p>
       </div>
@@ -428,9 +572,9 @@
   <!-- ══════════════════════════════
        FEATURES
   ══════════════════════════════ -->
-  <section class="tx-section" id="features">
+  <section class="tx-section" id="features" aria-labelledby="features-heading">
     <div class="tx-label">Key Features</div>
-    <h2>Everything You Need</h2>
+    <h2 id="features-heading">Everything You Need</h2>
     <p>A focused, no-bloat feature set designed for people who work with text every single day.</p>
 
     <div class="tx-features-2col">
@@ -451,8 +595,8 @@
       </div>
 
       <div class="tx-feature-block">
-        <h3>👁 Right-Side Preview Panel</h3>
-        <p>Click a card to load its full content in the right-side panel without opening the editor. This lets you read the complete text and decide whether to copy or edit — without any extra windows in the way.</p>
+        <h3>👁 Right/left-Side Preview Panel</h3>
+        <p>Click a card to load its full content in the right/left-side panel without opening the editor. This lets you read the complete text and decide whether to copy or edit — without any extra windows in the way.</p>
       </div>
 
       <div class="tx-feature-block">
@@ -467,10 +611,10 @@
       <div class="tx-feature-block">
         <h3>📤 Import / Export System</h3>
         <ul>
-          <li>Export selected snippets or your entire library</li>
-          <li>Import from a file with a built-in <strong>selection dialog</strong></li>
-          <li>Search within titles during import to find specific entries</li>
-          <li><strong>Duplicate detection</strong> — Textory warns you and lets you choose: skip or replace</li>
+          <li>Flexible Data Portability: Easily export or import your entire library or specific snippets</li>
+          <li>Effortless Transfers: Import and export directly via the streamlined title <strong>selection interface</strong></li>
+          <li>Search on the fly: Find exactly what you're looking for with title-based filtering during export or import</li>
+          <li>Conflict Management: Integrated <strong>duplicate detection</strong> with real-time alerts for overlapping titles</li>
         </ul>
       </div>
 
@@ -488,10 +632,7 @@
         <p>Switch between a clean light interface and a comfortable dark theme. The preference is saved automatically and applied on the next launch.</p>
       </div>
 
-      <div class="tx-feature-block">
-        <h3>👤 Username Attribution</h3>
-        <p>Every card records who created and who last edited it. When working in shared environments or logging your own edits over time, you always know who changed what.</p>
-      </div>
+      
 
       <div class="tx-feature-block">
         <h3>📖 Built-In Instructions</h3>
@@ -506,16 +647,16 @@
   <!-- ══════════════════════════════
        UI DESCRIPTION
   ══════════════════════════════ -->
-  <section class="tx-section">
+  <section class="tx-section" aria-labelledby="interface-heading">
     <div class="tx-label">Interface</div>
-    <h2>How the Interface Works</h2>
+    <h2 id="interface-heading">How the Interface Works</h2>
     <p>Textory follows a clear, predictable layout. Every window has a single purpose — no hidden menus, no cluttered toolbars.</p>
 
     <div class="tx-ui-grid">
       <div class="tx-ui-card">
         <div class="tx-ui-num">01 · MAIN WINDOW</div>
         <h3>Your Snippet Library</h3>
-        <p>The main window shows all your cards in a scrollable list on the left. The right side displays a full-content preview of the selected card. A search bar sits at the top, and group filters let you narrow the view instantly. Buttons for adding, editing, and deleting are always visible and clearly labeled.</p>
+        <p>The main window displays a scrollable list of all your cards. On the other side is a full-content preview of the selected card. A search bar is located at the top, and group filters allow you to instantly narrow the view. Buttons for adding, copying, editing, and deleting are always visible and clearly labeled.</p>
       </div>
       <div class="tx-ui-card">
         <div class="tx-ui-num">02 · ADD / EDIT WINDOW</div>
@@ -537,31 +678,69 @@
 
   <hr class="tx-divider">
 
+<span id="close" style="display:block;height:0;overflow:hidden;"></span>
+
   <!-- ══════════════════════════════
        SCREENSHOTS
+       To add a 5th image:
+       1. Add <div id="lb-5"> lightbox block above (copy lb-4 pattern)
+       2. Add a <div class="tx-screen-item"> below (copy the pattern)
+       3. Link image to href="#lb-5"
   ══════════════════════════════ -->
-  <section class="tx-section" id="screenshots">
+  <section class="tx-section" id="screenshots" aria-labelledby="screenshots-heading">
     <div class="tx-label">Screenshots</div>
-    <h2>See It in Action</h2>
-    <p>A quick look at Textory's clean, focused interface.</p>
+    <h2 id="screenshots-heading">See It in Action</h2>
+    <p>A quick look at Textory's clean, focused interface. Click any image to enlarge it.</p>
 
     <div class="tx-screens-grid">
+
       <div class="tx-screen-item">
-        <img src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-212302.png" alt="Main Interface – Light Mode">
+        <a href="#lb-1" class="tx-screen-link" aria-label="Enlarge: Main Interface Light Mode">
+          <img
+            src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-212302.png"
+            alt="Textory desktop application – main interface in light mode showing snippet cards and preview panel">
+        </a>
         <div class="tx-screen-caption">Main Interface · Light Mode</div>
       </div>
+
       <div class="tx-screen-item">
-        <img src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-212640.png" alt="Main Interface – Dark Mode">
+        <a href="#lb-2" class="tx-screen-link" aria-label="Enlarge: Main Interface Dark Mode">
+          <img
+            src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-212640.png"
+            alt="Textory desktop application – main interface in dark mode">
+        </a>
         <div class="tx-screen-caption">Main Interface · Dark Mode</div>
       </div>
+
       <div class="tx-screen-item">
-        <img src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-213517.png" alt="Rich Text Formatting">
+        <a href="#lb-3" class="tx-screen-link" aria-label="Enlarge: Rich Text Formatting">
+          <img
+            src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/d984d982d8b7d8a9-d8b4d8a7d8b4d8a9-2026-04-20-213517.png"
+            alt="Textory rich text editor with bold, italic, underline, strikethrough and highlight formatting options">
+        </a>
         <div class="tx-screen-caption">Rich Text Formatting</div>
       </div>
+
       <div class="tx-screen-item">
-        <img src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/setting.png" alt="Settings Panel">
+        <a href="#lb-4" class="tx-screen-link" aria-label="Enlarge: Settings Panel">
+          <img
+            src="https://textoryprogramm.wordpress.com/wp-content/uploads/2026/04/setting.png"
+            alt="Textory settings panel showing language selection, theme toggle, and username options">
+        </a>
         <div class="tx-screen-caption">Settings Panel</div>
       </div>
+
+      <!-- ADD 5TH IMAGE HERE — copy and paste this block, update src, alt, href, and caption:
+      <div class="tx-screen-item">
+        <a href="#lb-5" class="tx-screen-link" aria-label="Enlarge: [Caption]">
+          <img
+            src="YOUR_IMAGE_URL_HERE"
+            alt="Descriptive alt text for SEO">
+        </a>
+        <div class="tx-screen-caption">[Caption Text]</div>
+      </div>
+      -->
+
     </div>
   </section>
 
@@ -570,42 +749,42 @@
   <!-- ══════════════════════════════
        USE CASES
   ══════════════════════════════ -->
-  <section class="tx-section">
+  <section class="tx-section" aria-labelledby="usecases-heading">
     <div class="tx-label">Use Cases</div>
-    <h2>Who Is It For?</h2>
+    <h2 id="usecases-heading">Who Is It For?</h2>
     <p>Textory is built for anyone whose daily work involves repeating the same text over and over. If you find yourself copying from a previous chat, an old document, or a sticky note just to paste it somewhere else — Textory is for you.</p>
 
     <div class="tx-use-grid">
       <div class="tx-use-item">
-        <div class="tx-use-icon">🎧</div>
+        <div class="tx-use-icon" aria-hidden="true">🎧</div>
         <div>
           <h3>Technical Support</h3>
           <p>Store standard replies, troubleshooting steps, and escalation templates. Copy and send in one click.</p>
         </div>
       </div>
       <div class="tx-use-item">
-        <div class="tx-use-icon">💻</div>
+        <div class="tx-use-icon" aria-hidden="true">💻</div>
         <div>
           <h3>Programmers &amp; Developers</h3>
           <p>Keep code snippets, terminal commands, boilerplate blocks, and configuration templates always at hand.</p>
         </div>
       </div>
       <div class="tx-use-item">
-        <div class="tx-use-icon">🤝</div>
+        <div class="tx-use-icon" aria-hidden="true">🤝</div>
         <div>
           <h3>Customer Service</h3>
           <p>Maintain consistent, professional replies. Reduce response time without sacrificing quality or tone.</p>
         </div>
       </div>
       <div class="tx-use-item">
-        <div class="tx-use-icon">🏢</div>
+        <div class="tx-use-icon" aria-hidden="true">🏢</div>
         <div>
           <h3>Office &amp; Admin</h3>
           <p>Save email templates, meeting agendas, standard clauses, and form text for fast reuse throughout the day.</p>
         </div>
       </div>
       <div class="tx-use-item">
-        <div class="tx-use-icon">📓</div>
+        <div class="tx-use-icon" aria-hidden="true">📓</div>
         <div>
           <h3>Personal Productivity</h3>
           <p>Organize notes, quotes, ideas, and personal reference material in one tidy, searchable place.</p>
@@ -620,7 +799,7 @@
        PRIVACY
   ══════════════════════════════ -->
   <div class="tx-privacy">
-    <div class="tx-privacy-icon">🔒</div>
+    <div class="tx-privacy-icon" aria-hidden="true">🔒</div>
     <div class="tx-privacy-text">
       <h2>Your Data Stays on Your Device</h2>
       <p>Textory does not connect to the internet. All your snippets are stored locally in files on your own machine. No analytics, no telemetry, no accounts — and no way for anyone else to access what you store. It's your content, completely under your control.</p>
@@ -632,9 +811,9 @@
   <!-- ══════════════════════════════
        ADDITIONAL INFO
   ══════════════════════════════ -->
-  <section class="tx-section">
+  <section class="tx-section" aria-labelledby="why-heading">
     <div class="tx-label">Why Textory</div>
-    <h2>Simple by Design</h2>
+    <h2 id="why-heading">Simple by Design</h2>
     <p>Textory doesn't try to do everything. It does one thing well: manage reusable text, quickly and privately.</p>
 
     <div class="tx-features-2col">
@@ -662,16 +841,18 @@
   <!-- ══════════════════════════════
        DOWNLOAD
   ══════════════════════════════ -->
-  <section class="tx-section" id="download">
+  <section class="tx-section" id="download" aria-labelledby="download-heading">
     <div class="tx-download">
-      <h2>Download Textory</h2>
+      <h2 id="download-heading">Download Textory</h2>
       <p>Get the latest version directly from GitHub. Free for personal use — no account required.</p>
       <div>
-        <a class="tx-btn-download" href="https://github.com/Nazir-Amr/Textory/releases/tag/v2.0.0">↓ Download Textory v2.0.0 (.exe)</a>
+        <a class="tx-btn-download" href="https://github.com/Nazir-Amr/Textory/releases/tag/v3.0.4" target="_blank" rel="noopener">
+          &#8595; Download Textory v3.0.4
+        </a>
       </div>
-      <div class="tx-install-note">💡 Windows · Download, run the installer, and Textory is ready. No additional setup needed.</div>
+      <div class="tx-install-note">💡 Windows &middot; Download, run the installer, and Textory is ready. No additional setup needed.</div>
       <p style="margin-top:20px; font-size:0.85em; color:#777;">
-        Also available on &nbsp;<a href="https://github.com/Nazir-Amr/Textory" target="_blank">GitHub →</a>
+        Also available on &nbsp;<a href="https://github.com/Nazir-Amr/Textory/releases/tag/v3.0.4" target="_blank" rel="noopener">GitHub &#8594;</a>
       </p>
     </div>
   </section>
@@ -681,9 +862,9 @@
   <!-- ══════════════════════════════
        LICENSE
   ══════════════════════════════ -->
-  <section class="tx-section">
+  <section class="tx-section" aria-labelledby="license-heading">
     <div class="tx-label">Licensing</div>
-    <h2>License &amp; Usage Terms</h2>
+    <h2 id="license-heading">License &amp; Usage Terms</h2>
     <p>Textory is distributed under an End User License Agreement (EULA). The software has no technical restrictions — but please use it responsibly and within the terms below.</p>
 
     <div class="tx-license-grid">
@@ -699,7 +880,7 @@
         <h3>💼 Commercial Use — Paid</h3>
         <ul>
           <li>Requires a paid license</li>
-          <li>Contact the developer for authorization</li>
+          <li>Contact developer for authorization</li>
           <li>Official permission must be obtained before use</li>
         </ul>
       </div>
@@ -721,9 +902,9 @@
   <!-- ══════════════════════════════
        POLICY & DISCLAIMER
   ══════════════════════════════ -->
-  <section class="tx-section">
+  <section class="tx-section" aria-labelledby="policy-heading">
     <div class="tx-label">Policies</div>
-    <h2>Usage Policy &amp; Disclaimer</h2>
+    <h2 id="policy-heading">Usage Policy &amp; Disclaimer</h2>
 
     <div class="tx-features-2col">
       <div class="tx-feature-block">
@@ -742,26 +923,26 @@
   <!-- ══════════════════════════════
        CONTACT
   ══════════════════════════════ -->
-  <section class="tx-section">
+  <section class="tx-section" aria-labelledby="contact-heading">
     <div class="tx-label">Get in Touch</div>
-    <h2>Contact &amp; Commercial Licensing</h2>
+    <h2 id="contact-heading">Contact &amp; Commercial Licensing</h2>
     <p>For licensing inquiries, support questions, or general feedback, reach out through either of the channels below.</p>
 
     <div class="tx-contact-row">
       <div class="tx-contact-item">
-        <div class="tx-icon">✉️</div>
+        <div class="tx-icon" aria-hidden="true">✉️</div>
         <h3>Email</h3>
         <a href="mailto:textory.text.repository@gmail.com">textory.text.repository@gmail.com</a>
       </div>
       <div class="tx-contact-item">
-        <div class="tx-icon">🔗</div>
+        <div class="tx-icon" aria-hidden="true">🔗</div>
         <h3>LinkedIn</h3>
-        <a href="https://www.linkedin.com/in/nazir-amr" target="_blank">linkedin.com/in/nazir-amr</a>
+        <a href="https://www.linkedin.com/in/nazir-amr" target="_blank" rel="noopener">linkedin.com/in/nazir-amr</a>
       </div>
       <div class="tx-contact-item">
-        <div class="tx-icon">⚙️</div>
+        <div class="tx-icon" aria-hidden="true">⚙️</div>
         <h3>GitHub</h3>
-        <a href="https://github.com/Nazir-Amr/Textory" target="_blank">github.com/Nazir-Amr/Textory</a>
+        <a href="https://github.com/Nazir-Amr/Textory" target="_blank" rel="noopener">github.com/Nazir-Amr/Textory</a>
       </div>
     </div>
   </section>
@@ -771,9 +952,9 @@
   <!-- ══════════════════════════════
        ABOUT DEVELOPER
   ══════════════════════════════ -->
-  <section class="tx-section">
+  <section class="tx-section" aria-labelledby="about-heading">
     <div class="tx-label">About</div>
-    <h2>About the Developer</h2>
+    <h2 id="about-heading">About the Developer</h2>
     <p>Textory was developed by <strong>Nazir Amr</strong> with a clear goal: provide a simple, reliable way to manage reusable text — without unnecessary complexity or external dependencies.</p>
     <p>The idea came from real, everyday work where speed, consistency, and organization matter. Instead of relying on cloud-based tools or bloated platforms, Textory is designed to work locally, giving users full control over their own data.</p>
     <p>Every part of the application is built with practicality in mind — the lightweight structure, the clean interface, and the fast access to stored content. The goal was never to add more features for the sake of it, but to deliver the right features in an efficient and accessible way.</p>
@@ -782,10 +963,12 @@
   <!-- ══════════════════════════════
        FOOTER
   ══════════════════════════════ -->
-  <div class="tx-footer">
-    <p><strong>Textory</strong> · Smart &amp; Efficient Text Management</p>
-    <p>Free for personal use · Commercial use requires a license</p>
+  <footer class="tx-footer">
+    <p><strong>Textory</strong> · Smart &amp; Efficient Text Management · v3.0.4</p>
+    <p>Free for personal use &middot; Commercial use requires a license</p>
     <p style="margin-top:10px; font-size:0.8em;">Textory is independently developed. All rights reserved under its EULA.</p>
-  </div>
+  </footer>
 
 </div>
+</body>
+</html>
