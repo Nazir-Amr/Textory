@@ -1,16 +1,20 @@
 ## Screenshots
 
 ### Light Mode
-![Light Mode](Screenshots/Main-Interface-Light-Mode.png)
+![Light Mode](Screenshots/Main-Interface-Light-Mode-1.png)
 
 ### Dark Mode
-![Dark Mode](Screenshots/Main-Interface-Dark-Mode.png)
+![Dark Mode](Screenshots/Main-Interface-Dark-Mode-2.png)
 
 ### Add / Edit Snippet
-![Add Edit](Screenshots/Rich-Text-Formatting.png)
+![Add Edit](Screenshots/Rich-Text-Formatting-3.png)
 
 ### Settings
-![Settings](Screenshots/Setting.png)
+![Settings](Screenshots/Setting-4.png)
+
+### Select Snippets to Export / Import
+![Settings](Screenshots/Select-Snippets-to-Export-Import-5.png)
+
 
 
 ---
