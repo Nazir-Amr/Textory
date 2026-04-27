@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ══ SEO ══ -->
-  <title>Textory – Smart & Efficient Text Snippet Manager for Desktop</title>
+  <title>Textory – Text Repository</title>
   <meta name="description" content="Textory is a free, offline desktop application for managing reusable text snippets. Save, search, copy, and organize text cards with rich formatting — 100% local, no cloud needed.">
   <meta name="keywords" content="text snippet manager, clipboard manager, desktop app, offline text tool, reusable text, Python desktop app, productivity tool, text organizer, Textory">
   <meta name="author" content="Nazir Amr">
@@ -466,6 +466,96 @@
   .tx-footer p { color: rgba(255,255,255,0.65); font-size: 0.85em; margin-bottom: 6px; }
   .tx-footer strong { color: #fff; }
 
+  /* ── Contact Form ── */
+  .tx-form-wrap {
+    background: #f7f9fc;
+    border: 1px solid #dde3ed;
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-top: 24px;
+  }
+  .tx-form-group {
+    margin-bottom: 20px;
+  }
+  .tx-form-group label {
+    display: block;
+    font-size: 0.88em;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+  }
+  .tx-form-group input,
+  .tx-form-group textarea {
+    width: 100%;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 0.95em;
+    color: #1a1a2e;
+    background: #fff;
+    border: 1px solid #c8d4e8;
+    border-radius: 7px;
+    padding: 11px 14px;
+    line-height: 1.6;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    box-sizing: border-box;
+  }
+  .tx-form-group input::placeholder,
+  .tx-form-group textarea::placeholder {
+    color: #aab4c4;
+    font-style: italic;
+  }
+  .tx-form-group input:focus,
+  .tx-form-group textarea:focus {
+    border-color: #1a6fad;
+    box-shadow: 0 0 0 3px rgba(26,111,173,0.12);
+  }
+  .tx-form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+  .tx-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .tx-form-row .tx-form-group {
+    flex: 1 1 200px;
+  }
+  .tx-form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a6fad;
+    color: #fff;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 0.95em;
+    font-weight: 700;
+    padding: 13px 32px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+    text-align: center;
+    white-space: nowrap;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  }
+  .tx-form-submit:hover {
+    background: #155d94;
+    box-shadow: 0 4px 14px rgba(26,111,173,0.25);
+  }
+  .tx-form-submit:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  .tx-form-submit:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26,111,173,0.3);
+  }
+  /* Hide the anti-spam honeypot field */
+  .tx-gotcha { display: none; }
+
   /* ── Responsive ── */
   @media (max-width: 600px) {
     .tx-hero { padding: 36px 24px; }
@@ -474,7 +564,7 @@
     .tx-stat:last-child { border-bottom: none; }
     .tx-privacy { padding: 28px 20px; }
     .tx-download { padding: 28px 20px; }
-    .tx-screen-item { flex: 1 1 100%; }
+    .tx-form-wrap { padding: 24px 20px; }
     .tx-screen-item img { height: 200px; }
     .tx-btn-row { flex-direction: column; align-items: flex-start; }
   }
@@ -524,7 +614,8 @@
     <h1>Smart &amp; Efficient<br><span>Text Management</span></h1>
     <p>Textory helps you save, organize, and instantly reuse your text snippets — fast, private, and completely offline.</p>
     <div class="tx-btn-row">
-      <a class="tx-btn-primary" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.4/Textory_Setup_v3.0.4.msi">&#8595; Download Textory v3.0.4</a>
+      <a class="tx-btn-primary" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.4/Textory_Setup_v3.0.4.msi">&#8595; Download Textory v3.0.4 (.msi)</a>
+	  <!--<a class="tx-btn-primary" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.4/Textory_Portable_v3.0.4.exe">&#8595; Download Textory v3.0.4 (Portable - EXE)</a> -->
       <a class="tx-btn-ghost" href="#features">Explore Features</a>
     </div>
   </div>
@@ -850,9 +941,12 @@
     <div class="tx-download">
       <h2 id="download-heading">Download Textory</h2>
       <p>Get the latest version directly from GitHub. Free for personal use — no account required.</p>
-      <div>
-        <a class="tx-btn-download" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.4/Textory_Setup_v3.0.4.msi" target="_blank" rel="noopener">
-          &#8595; Download Textory v3.0.4
+      <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+        <a class="tx-btn-download" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.4/Textory_Setup_v3.0.4.msi" target="_blank" rel="noopener" style="width:300px; max-width:100%;">
+          &#8595; Textory v3.0.4 (.msi)
+        </a>
+        <a class="tx-btn-download" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.4/Textory_Portable_v3.0.4.exe" target="_blank" rel="noopener" style="width:300px; max-width:100%;">
+          &#8595; Textory Portable v3.0.4 (.exe)
         </a>
       </div>
       <div class="tx-install-note">💡 Windows &middot; Download, run the installer, and Textory is ready. No additional setup needed.</div>
@@ -926,35 +1020,6 @@
   <hr class="tx-divider">
 
   <!-- ══════════════════════════════
-       CONTACT
-  ══════════════════════════════ -->
-  <section class="tx-section" aria-labelledby="contact-heading">
-    <div class="tx-label">Get in Touch</div>
-    <h2 id="contact-heading">Contact &amp; Commercial Licensing</h2>
-    <p>For licensing inquiries, support questions, or general feedback, reach out through either of the channels below.</p>
-
-    <div class="tx-contact-row">
-      <div class="tx-contact-item">
-        <div class="tx-icon" aria-hidden="true">✉️</div>
-        <h3>Email</h3>
-        <a href="mailto:textory.text.repository@gmail.com">textory.text.repository@gmail.com</a>
-      </div>
-      <div class="tx-contact-item">
-        <div class="tx-icon" aria-hidden="true">🔗</div>
-        <h3>LinkedIn</h3>
-        <a href="https://www.linkedin.com/in/nazir-amr" target="_blank" rel="noopener">linkedin.com/in/nazir-amr</a>
-      </div>
-      <div class="tx-contact-item">
-        <div class="tx-icon" aria-hidden="true">⚙️</div>
-        <h3>GitHub</h3>
-        <a href="https://github.com/Nazir-Amr/Textory" target="_blank" rel="noopener">github.com/Nazir-Amr/Textory</a>
-      </div>
-    </div>
-  </section>
-
-  <hr class="tx-divider">
-
-  <!-- ══════════════════════════════
        ABOUT DEVELOPER
   ══════════════════════════════ -->
   <section class="tx-section" aria-labelledby="about-heading">
@@ -963,6 +1028,90 @@
     <p>Textory was developed by <strong>Nazir Amr</strong> with a clear goal: provide a simple, reliable way to manage reusable text — without unnecessary complexity or external dependencies.</p>
     <p>The idea came from real, everyday work where speed, consistency, and organization matter. Instead of relying on cloud-based tools or bloated platforms, Textory is designed to work locally, giving users full control over their own data.</p>
     <p>Every part of the application is built with practicality in mind — the lightweight structure, the clean interface, and the fast access to stored content. The goal was never to add more features for the sake of it, but to deliver the right features in an efficient and accessible way.</p>
+  </section>
+
+  <hr class="tx-divider">
+
+  <!-- ══════════════════════════════
+       CONTACT (merged: links + form)
+  ══════════════════════════════ -->
+  <section class="tx-section" id="contact-form" aria-labelledby="contact-heading">
+    <div class="tx-label">Get in Touch</div>
+    <h2 id="contact-heading">Contact &amp; Send a Message</h2>
+    <p>For licensing inquiries, support questions, or general feedback — connect via LinkedIn or fill in the form below and I'll get back to you as soon as possible.</p>
+
+    <!-- LinkedIn -->
+    <div class="tx-contact-row" style="margin-bottom:28px;">
+      <!--<div class="tx-contact-item">
+        <div class="tx-icon" aria-hidden="true">✉️</div>
+        <h3>Email</h3>
+        <a href="mailto:textory.text.repository@gmail.com">textory.text.repository@gmail.com</a>
+      </div>-->
+      <div class="tx-contact-item">
+        <div class="tx-icon" aria-hidden="true">🔗</div>
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/nazir-amr" target="_blank" rel="noopener">linkedin.com/in/nazir-amr</a>
+      </div>
+      <!--<div class="tx-contact-item">
+        <div class="tx-icon" aria-hidden="true">⚙️</div>
+        <h3>GitHub</h3>
+        <a href="https://github.com/Nazir-Amr/Textory" target="_blank" rel="noopener">github.com/Nazir-Amr/Textory</a>
+      </div>-->
+    </div>
+
+    <!-- Form -->
+    <div class="tx-form-wrap">
+      <form
+        action="https://formspree.io/f/mjgjdprd"
+        method="POST"
+        novalidate
+      >
+        <!-- Hidden fields -->
+        <input type="hidden" name="_subject" value="New message from Textory">
+        <input type="hidden" name="_redirect" value="https://nazir-amr.github.io/Textory/thank-you.html">
+        <!-- Anti-spam honeypot -->
+        <div class="tx-gotcha" aria-hidden="true">
+          <label>Do not fill this field: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="tx-form-row">
+          <div class="tx-form-group">
+            <label for="tx-name">Your Name <span aria-hidden="true" style="color:#c0392b;">*</span></label>
+            <input
+              type="text"
+              id="tx-name"
+              name="name"
+              placeholder="Your Name"
+              required
+              autocomplete="name"
+            >
+          </div>
+          <div class="tx-form-group">
+            <label for="tx-email">Email Address <span aria-hidden="true" style="color:#c0392b;">*</span></label>
+            <input
+              type="email"
+              id="tx-email"
+              name="email"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+            >
+          </div>
+        </div>
+
+        <div class="tx-form-group">
+          <label for="tx-message">Message <span aria-hidden="true" style="color:#c0392b;">*</span></label>
+          <textarea
+            id="tx-message"
+            name="message"
+            placeholder="Write your message here…"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="tx-form-submit">&#9993;&nbsp; Send Message</button>
+      </form>
+    </div>
   </section>
 
   <!-- ══════════════════════════════
