@@ -7,7 +7,7 @@
 ![Dark Mode](Screenshots/Main-Interface-Dark-Mode-2.png)
 
 ### Add / Edit Snippet
-![Add Edit](Screenshots/Rich-Text-Formatting-3.png)
+![Add Edit](Screenshots/Rich-Text-Formatting.png)
 
 ### Settings
 ![Settings](Screenshots/Setting-4.png)
