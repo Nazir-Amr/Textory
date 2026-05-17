@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textory – Kostenloser Offline-Textbaustein-Manager für Windows | EN · DE · AR</title>
+  <meta name="description" content="Textory ist eine kostenlose Offline-Desktop-App für Windows zum Speichern, Suchen und Wiederverwenden von Textbausteinen. Unterstützt Englisch, Deutsch und Arabisch. 100 % lokal – ohne Cloud und ohne Konto.">
+  <meta name="keywords" content="Textbaustein-Manager, Zwischenablage-Organizer, Offline-Text-Tool, wiederverwendbare Texte, Windows Desktop App, Textvorlagen, Snippet-Manager, kostenlose Windows App, mehrsprachige App, Textory herunterladen, installieren">
+  <meta name="author" content="Nazir Amr">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://nazir-amr.github.io/Textory/de/">
+  <link rel="alternate" hreflang="en"        href="https://nazir-amr.github.io/Textory/">
+  <link rel="alternate" hreflang="de"        href="https://nazir-amr.github.io/Textory/de/">
+  <link rel="alternate" hreflang="ar"        href="https://nazir-amr.github.io/Textory/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://nazir-amr.github.io/Textory/">
+  <meta property="og:type"              content="website">
+  <meta property="og:site_name"         content="Textory">
+  <meta property="og:url"               content="https://nazir-amr.github.io/Textory/de/">
+  <meta property="og:title"             content="Textory – Kostenloser Offline-Textbaustein-Manager für Windows">
+  <meta property="og:description"       content="Textbausteine speichern, organisieren und sofort wiederverwenden – offline, privat und kostenlos. Unterstützt Englisch, Deutsch und Arabisch.">
+  <meta property="og:image"             content="https://nazir-amr.github.io/Textory/Screenshots/Main-Interface-Light-Mode-1.png">
+  <meta property="og:image:width"       content="1280">
+  <meta property="og:image:height"      content="720">
+  <meta property="og:image:alt"         content="Textory Desktop-Anwendung im Hellmodus">
+  <meta property="og:locale"            content="de_DE">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Textory – Kostenloser Offline-Textbaustein-Manager für Windows">
+  <meta name="twitter:description" content="Textbausteine speichern, suchen und sofort wiederverwenden – 100 % offline und privat.">
+  <meta name="twitter:image"       content="https://nazir-amr.github.io/Textory/Screenshots/Main-Interface-Light-Mode-1.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Textory","url":"https://nazir-amr.github.io/Textory/","description":"Kostenlose Offline-Desktop-Anwendung für Windows zum Verwalten wiederverwendbarer Textbausteine.","applicationCategory":"ProductivityApplication","operatingSystem":"Windows","softwareVersion":"3.0.6","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"author":{"@type":"Person","name":"Nazir Amr","url":"https://www.linkedin.com/in/nazir-amr"},"inLanguage":["en","de","ar"],"downloadUrl":"https://github.com/Nazir-Amr/Textory/releases/tag/v3.0.6"}</script>
+  <meta name="google-site-verification" content="ZSYB_mi1JxTbiclSeubW8IMr9zVpK4jzSB_kwmw13Js">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="msapplication-TileColor" content="#1a6fad">
+  <meta name="msapplication-TileImage" content="../mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  .tx-wrap*{box-sizing:border-box;margin:0;padding:0}
+  .tx-wrap{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Helvetica Neue',Arial,sans-serif;color:#1a1a2e;line-height:1.7;max-width:900px;margin:0 auto;padding:0 20px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  .tx-wrap h1{font-size:2.6em;font-weight:700;line-height:1.2;letter-spacing:-0.5px}
+  .tx-wrap h2{font-size:1.75em;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px}
+  .tx-wrap h3{font-size:1.1em;font-weight:700;margin-bottom:6px}
+  .tx-wrap p{margin-bottom:12px;color:#333;font-size:0.98em}
+  .tx-wrap ul{padding-left:20px;color:#333;font-size:0.97em}
+  .tx-wrap ul li{margin-bottom:6px}
+  .tx-wrap a{color:#1a6fad;text-decoration:none}
+  .tx-wrap a:hover{text-decoration:underline}
+  .tx-wrap a.tx-btn-primary,.tx-wrap a.tx-btn-primary:hover{color:#0f2944!important}
+  .tx-wrap a.tx-btn-ghost,.tx-wrap a.tx-btn-ghost:hover{color:rgba(255,255,255,0.85)!important}
+  .tx-wrap a.tx-btn-download,.tx-wrap a.tx-btn-download:hover{color:#fff!important}
+  .tx-divider{border:none;border-top:1px solid #e0e0e8;margin:52px 0}
+  .tx-label{display:inline-block;font-family:'Courier New',monospace;font-size:0.72em;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#1a6fad;background:#eaf2fb;border:1px solid #b8d8f5;border-radius:20px;padding:3px 12px;margin-bottom:14px}
+  .tx-lang-bar{text-align:right;padding:8px 0 0;font-size:0.82em;color:#888}
+  .tx-lang-bar a{color:#1a6fad;margin-left:10px;font-weight:600}
+  .tx-lang-bar span{color:#1a1a2e;margin-left:10px;font-weight:700}
+  .tx-hero{background:linear-gradient(135deg,#0f2944 0%,#1a4a7a 60%,#1a6fad 100%);border-radius:12px;padding:60px 48px;margin:32px 0 52px;position:relative;overflow:hidden}
+  .tx-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:rgba(255,255,255,0.04);border-radius:50%;pointer-events:none}
+  .tx-hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:300px;height:300px;background:rgba(255,255,255,0.03);border-radius:50%;pointer-events:none}
+  .tx-hero-badge{display:inline-block;font-family:'Courier New',monospace;font-size:0.7em;letter-spacing:2.5px;text-transform:uppercase;color:#7ec8f5;background:rgba(126,200,245,0.12);border:1px solid rgba(126,200,245,0.3);border-radius:20px;padding:4px 14px;margin-bottom:22px}
+  .tx-hero h1{color:#fff;margin-bottom:16px;font-size:2.8em}
+  .tx-hero h1 span{color:#7ec8f5}
+  .tx-hero p{color:rgba(255,255,255,0.8);font-size:1.05em;max-width:540px;margin-bottom:32px}
+  .tx-btn-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;position:relative;z-index:2}
+  .tx-btn-primary{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#0f2944;font-weight:700;font-size:0.92em;padding:13px 28px;border-radius:6px;text-decoration:none;letter-spacing:0.3px;line-height:1.3;text-align:center;white-space:nowrap;transition:background 0.2s}
+  .tx-btn-primary:hover{background:#e8f4fd;text-decoration:none;color:#0f2944}
+  .tx-btn-ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:rgba(255,255,255,0.85);font-weight:600;font-size:0.92em;padding:13px 28px;border-radius:6px;border:1px solid rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.3px;line-height:1.3;text-align:center;white-space:nowrap}
+  .tx-btn-ghost:hover{background:rgba(255,255,255,0.08);text-decoration:none;color:#fff}
+  .tx-section{margin-bottom:0}
+  .tx-overview-grid{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px}
+  .tx-overview-card{flex:1 1 180px;background:#f7f9fc;border:1px solid #e4e8f0;border-radius:10px;padding:22px 20px}
+  .tx-overview-card .tx-icon{font-size:1.6em;margin-bottom:10px}
+  .tx-overview-card h3{font-size:0.95em;color:#1a1a2e;margin-bottom:6px}
+  .tx-overview-card p{font-size:0.87em;color:#555;margin:0}
+  .tx-feature-block{border-left:3px solid #1a6fad;padding:18px 20px;background:#f7f9fc;border-radius:0 8px 8px 0;margin-bottom:16px}
+  .tx-feature-block h3{color:#1a1a2e;font-size:1em;margin-bottom:6px}
+  .tx-feature-block p{font-size:0.88em;color:#444;margin:0}
+  .tx-feature-block ul{font-size:0.88em;color:#444;margin:6px 0 0;padding-left:18px}
+  .tx-feature-block ul li{margin-bottom:3px}
+  .tx-features-2col{display:flex;flex-wrap:wrap;gap:16px}
+  .tx-features-2col .tx-feature-block{flex:1 1 340px}
+  .tx-ui-grid{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}
+  .tx-ui-card{flex:1 1 200px;background:#fff;border:1px solid #dde3ed;border-radius:10px;padding:20px}
+  .tx-ui-card .tx-ui-num{font-family:'Courier New',monospace;font-size:0.75em;font-weight:700;color:#1a6fad;letter-spacing:1px;margin-bottom:8px}
+  .tx-ui-card h3{font-size:0.95em;color:#1a1a2e;margin-bottom:8px}
+  .tx-ui-card p{font-size:0.85em;color:#555;margin:0}
+  .tx-use-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .tx-use-item{background:#fff;border:1px solid #dde3ed;border-radius:8px;padding:16px 18px;flex:1 1 150px;display:flex;align-items:flex-start;gap:10px}
+  .tx-use-item .tx-use-icon{font-size:1.3em;flex-shrink:0}
+  .tx-use-item div h3{font-size:0.88em;color:#1a1a2e;margin-bottom:3px}
+  .tx-use-item div p{font-size:0.82em;color:#666;margin:0}
+  .tx-screens-grid{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}
+  .tx-screen-item{flex:1 1 240px;border:1px solid #dde3ed;border-radius:10px;overflow:hidden;background:#f7f9fc;transition:box-shadow 0.2s}
+  .tx-screen-item:hover{box-shadow:0 6px 24px rgba(26,111,173,0.15)}
+  .tx-screen-item a.tx-screen-link{display:block;cursor:zoom-in}
+  .tx-screen-item img{width:100%;height:220px;min-height:220px;max-height:220px;object-fit:cover;object-position:top;display:block;transition:opacity 0.2s}
+  .tx-screen-item:hover img{opacity:0.92}
+  .tx-screen-caption{font-size:0.82em;color:#555;text-align:center;padding:10px 8px;border-top:1px solid #e4e8f0;font-family:'Courier New',monospace;letter-spacing:0.5px}
+  .tx-lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:99999;justify-content:center;align-items:center;padding:20px}
+  .tx-lightbox:target{display:flex}
+  .tx-lightbox img{max-width:100%;max-height:88vh;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,0.7);object-fit:contain}
+  .tx-lightbox-close{position:fixed;top:18px;right:26px;color:#fff;font-size:2.4em;font-weight:700;text-decoration:none;line-height:1;opacity:0.85;z-index:100000}
+  .tx-lightbox-close:hover{opacity:1;text-decoration:none;color:#fff}
+  .tx-lightbox-caption{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.75);font-size:0.85em;font-family:'Courier New',monospace;letter-spacing:1px;white-space:nowrap}
+  .tx-stats{display:flex;flex-wrap:wrap;gap:0;background:#f0f5fc;border:1px solid #dde8f5;border-radius:10px;overflow:hidden;margin:28px 0 0}
+  .tx-stat{flex:1 1 140px;padding:22px 20px;text-align:center;border-right:1px solid #dde8f5}
+  .tx-stat:last-child{border-right:none}
+  .tx-stat strong{display:block;font-size:1.5em;color:#1a4a7a;font-family:'Courier New',monospace;margin-bottom:4px}
+  .tx-stat span{font-size:0.8em;color:#555}
+  .tx-privacy{background:linear-gradient(120deg,#0f2944,#1a4a7a);color:#fff;border-radius:10px;padding:36px;display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+  .tx-privacy-icon{font-size:2.5em;flex-shrink:0}
+  .tx-privacy-text h2{color:#fff;font-size:1.3em;margin-bottom:8px}
+  .tx-privacy-text p{color:rgba(255,255,255,0.8);font-size:0.9em;margin:0}
+  .tx-download{background:#f7f9fc;border:2px solid #1a6fad;border-radius:12px;padding:40px 36px;text-align:center}
+  .tx-download h2{color:#0f2944;margin-bottom:8px}
+  .tx-download p{color:#555;margin-bottom:24px}
+  .tx-btn-download{display:inline-flex;align-items:center;justify-content:center;background:#1a6fad;color:#fff;font-weight:700;font-size:1em;padding:15px 36px;border-radius:7px;text-decoration:none;letter-spacing:0.3px;line-height:1.3;text-align:center;white-space:nowrap;margin-bottom:14px}
+  .tx-btn-download:hover{background:#155d94;text-decoration:none;color:#fff}
+  .tx-install-note{display:inline-block;background:#fff;border:1px solid #dde3ed;border-radius:6px;padding:10px 20px;font-size:0.84em;color:#555;margin-top:10px}
+  .tx-license-grid{display:flex;flex-wrap:wrap;gap:16px;margin:20px 0}
+  .tx-license-card{flex:1 1 240px;border-radius:10px;padding:24px;border:1px solid}
+  .tx-license-free{background:#f0f9f4;border-color:#a8d8ba}
+  .tx-license-free h3{color:#2a7a4f}
+  .tx-license-paid{background:#fdf5e8;border-color:#e8c97a}
+  .tx-license-paid h3{color:#8a6200}
+  .tx-license-card ul{margin-top:10px}
+  .tx-license-card ul li{font-size:0.88em;margin-bottom:5px}
+  .tx-contact-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+  .tx-contact-item{flex:1 1 200px;background:#f7f9fc;border:1px solid #dde3ed;border-radius:8px;padding:18px 20px}
+  .tx-contact-item .tx-icon{font-size:1.2em;margin-bottom:6px}
+  .tx-contact-item h3{font-size:0.88em;color:#555;margin-bottom:4px;font-weight:600}
+  .tx-contact-item a,.tx-contact-item p{font-size:0.9em;color:#1a1a2e;font-weight:600;margin:0}
+  .tx-footer{background:#0f2944;border-radius:10px;padding:28px 32px;text-align:center;margin-top:52px;margin-bottom:20px}
+  .tx-footer p{color:rgba(255,255,255,0.65);font-size:0.85em;margin-bottom:6px}
+  .tx-footer strong{color:#fff}
+  .tx-form-wrap{background:#f7f9fc;border:1px solid #dde3ed;border-radius:12px;padding:36px 40px;margin-top:24px}
+  .tx-form-group{margin-bottom:20px}
+  .tx-form-group label{display:block;font-size:0.88em;font-weight:700;color:#1a1a2e;margin-bottom:6px;letter-spacing:0.2px}
+  .tx-form-group input,.tx-form-group textarea{width:100%;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.95em;color:#1a1a2e;background:#fff;border:1px solid #c8d4e8;border-radius:7px;padding:11px 14px;line-height:1.6;transition:border-color 0.2s,box-shadow 0.2s;outline:none;box-sizing:border-box}
+  .tx-form-group input::placeholder,.tx-form-group textarea::placeholder{color:#aab4c4;font-style:italic}
+  .tx-form-group input:focus,.tx-form-group textarea:focus{border-color:#1a6fad;box-shadow:0 0 0 3px rgba(26,111,173,0.12)}
+  .tx-form-group textarea{min-height:140px;resize:vertical}
+  .tx-form-row{display:flex;flex-wrap:wrap;gap:16px}
+  .tx-form-row .tx-form-group{flex:1 1 200px}
+  .tx-form-submit{display:inline-flex;align-items:center;justify-content:center;background:#1a6fad;color:#fff;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.95em;font-weight:700;padding:13px 32px;border:none;border-radius:7px;cursor:pointer;letter-spacing:0.3px;line-height:1.3;text-align:center;white-space:nowrap;transition:background 0.2s,box-shadow 0.2s,transform 0.1s}
+  .tx-form-submit:hover{background:#155d94;box-shadow:0 4px 14px rgba(26,111,173,0.25)}
+  .tx-form-submit:active{transform:translateY(1px);box-shadow:none}
+  .tx-form-submit:focus{outline:none;box-shadow:0 0 0 3px rgba(26,111,173,0.3)}
+  .tx-gotcha{display:none}
+  @media(max-width:600px){.tx-hero{padding:36px 24px}.tx-hero h1{font-size:2em}.tx-stat{border-right:none;border-bottom:1px solid #dde8f5}.tx-stat:last-child{border-bottom:none}.tx-privacy{padding:28px 20px}.tx-download{padding:28px 20px}.tx-form-wrap{padding:24px 20px}.tx-screen-item img{height:200px}.tx-btn-row{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div id="lb-1" class="tx-lightbox" role="dialog" aria-label="Screenshot vergrößert"><a href="#close" class="tx-lightbox-close" aria-label="Schließen">&times;</a><img src="../Screenshots/Main-Interface-Light-Mode-1.png" alt="Hauptoberfläche Hellmodus"><span class="tx-lightbox-caption">Hauptoberfläche · Hellmodus</span></div>
+<div id="lb-2" class="tx-lightbox" role="dialog" aria-label="Screenshot vergrößert"><a href="#close" class="tx-lightbox-close" aria-label="Schließen">&times;</a><img src="../Screenshots/Main-Interface-Dark-Mode-2.png" alt="Hauptoberfläche Dunkelmodus"><span class="tx-lightbox-caption">Hauptoberfläche · Dunkelmodus</span></div>
+<div id="lb-3" class="tx-lightbox" role="dialog" aria-label="Screenshot vergrößert"><a href="#close" class="tx-lightbox-close" aria-label="Schließen">&times;</a><img src="../Screenshots/Rich-Text-Formatting.png" alt="Rich-Text-Formatierung"><span class="tx-lightbox-caption">Rich-Text-Formatierung</span></div>
+<div id="lb-4" class="tx-lightbox" role="dialog" aria-label="Screenshot vergrößert"><a href="#close" class="tx-lightbox-close" aria-label="Schließen">&times;</a><img src="../Screenshots/Setting-4.png" alt="Einstellungsbereich"><span class="tx-lightbox-caption">Einstellungsbereich</span></div>
+<div id="lb-5" class="tx-lightbox" role="dialog" aria-label="Screenshot vergrößert"><a href="#close" class="tx-lightbox-close" aria-label="Schließen">&times;</a><img src="../Screenshots/Select-Snippets-to-Export-Import-5.png" alt="Import/Export Dialog"><span class="tx-lightbox-caption">Textbausteine exportieren / importieren</span></div>
+
+<div class="tx-wrap">
+  <div class="tx-lang-bar"><a href="../">EN</a><span>DE</span><a href="../ar/">AR</a></div>
+
+  <div class="tx-hero">
+    <div class="tx-hero-badge">Desktop-Anwendung · v3.0.6</div>
+    <h1>Intelligentes &amp; effizientes<br><span>Textmanagement</span></h1>
+    <p>Textory hilft Ihnen, Textbausteine zu speichern, zu organisieren und sofort wiederzuverwenden – schnell, privat und vollständig offline.</p>
+    <div class="tx-btn-row">
+      <a class="tx-btn-primary" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.6/Textory_Setup_v3.0.6.msi">&#8595; Textory v3.0.6 herunterladen (.msi)</a>
+      <a class="tx-btn-ghost" href="#funktionen">Funktionen entdecken</a>
+    </div>
+  </div>
+
+  <div class="tx-stats" aria-label="Kennzahlen">
+    <div class="tx-stat"><strong>3</strong><span>Sprachen</span></div>
+    <div class="tx-stat"><strong>100%</strong><span>Lokal &amp; Privat</span></div>
+    <div class="tx-stat"><strong>0</strong><span>Cloud-Abhängigkeiten</span></div>
+    <div class="tx-stat"><strong>Kostenlos</strong><span>Privatnutzung</span></div>
+  </div>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" aria-labelledby="ueberblick-heading">
+    <div class="tx-label">Überblick</div>
+    <h2 id="ueberblick-heading">Was ist Textory?</h2>
+    <p>Textory ist eine leichtgewichtige Desktop-Anwendung, entwickelt mit Python. Sie bietet einen übersichtlichen, organisierten Bereich zum Speichern und Verwalten wiederverwendbarer Textbausteine – Antworten, Code-Notizen, Vorlagen und mehr – ohne Cloud-Dienst, Benutzerkonto oder Internetverbindung.</p>
+    <div class="tx-overview-grid">
+      <div class="tx-overview-card"><div class="tx-icon">🐍</div><h3>Entwickelt mit Python</h3><p>Leichtgewichtig und nativ. Läuft direkt auf dem Desktop ohne Hintergrunddienste oder schwere Laufzeitumgebungen.</p></div>
+      <div class="tx-overview-card"><div class="tx-icon">💾</div><h3>100 % lokale Speicherung</h3><p>Ihre Daten verlassen nie Ihr Gerät. Keine Konten, keine Synchronisierung, keine Cloud – nur Ihre Dateien auf Ihrer Maschine.</p></div>
+      <div class="tx-overview-card"><div class="tx-icon">⚡</div><h3>Für Geschwindigkeit gebaut</h3><p>Kopieren, bearbeiten und suchen in Sekunden. Optimiert für Profis, die täglich mit sich wiederholendem Text arbeiten.</p></div>
+      <div class="tx-overview-card"><div class="tx-icon">🌐</div><h3>Mehrsprachig</h3><p>Englisch, Deutsch und Arabisch – mit vollständiger Rechts-nach-Links-Layoutunterstützung für arabische Benutzer.</p></div>
+    </div>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" id="funktionen" aria-labelledby="funktionen-heading">
+    <div class="tx-label">Hauptfunktionen</div>
+    <h2 id="funktionen-heading">Alles, was Sie brauchen</h2>
+    <p>Ein fokussiertes, aufgeräumtes Funktionsset für Menschen, die täglich mit Text arbeiten.</p>
+    <div class="tx-features-2col">
+      <div class="tx-feature-block"><h3>📝 Textkartenverwaltung</h3><p>Jeder Textbaustein wird als Karte gespeichert. Speichern, bearbeiten, kopieren und löschen mit einem Klick. Karten zeigen Titel, Inhaltsvorschau und Schnellaktionsschaltflächen.</p></div>
+      <div class="tx-feature-block"><h3>🔍 Live-Suche</h3><p>Anfangen zu tippen und Ergebnisse erscheinen sofort. Die Suche filtert alle gespeicherten Titel und Inhalte in Echtzeit – kein Scrollen durch lange Listen erforderlich.</p></div>
+      <div class="tx-feature-block"><h3>📂 Gruppen &amp; Kategorien</h3><p>Textbausteine in benutzerdefinierte Gruppen organisieren, nach Gruppe filtern und Gruppen jederzeit umbenennen – ideal bei Dutzenden von Textbausteinen zu verschiedenen Themen.</p></div>
+      <div class="tx-feature-block"><h3>👁 Vorschaubereich</h3><p>Auf eine Karte klicken, um deren vollständigen Inhalt im seitlichen Bereich zu laden – ohne den Editor zu öffnen. Vollständigen Text lesen und entscheiden, ob kopiert oder bearbeitet wird.</p></div>
+      <div class="tx-feature-block"><h3>✏️ Rich-Text-Formatierung</h3><ul><li><strong>Fett, Kursiv, Unterstrichen, Durchgestrichen</strong> – Standard-Inline-Formatierung</li><li><strong>Texthervorhebung</strong> – Schlüsselbegriffe visuell hervorheben</li></ul><p style="margin-top:8px;">Die Formatierung bleibt beim Kopieren erhalten – was Sie schreiben, wird eingefügt.</p></div>
+      <div class="tx-feature-block"><h3>📤 Import / Export-System</h3><ul><li>Flexible Datenportabilität: Gesamte Bibliothek oder bestimmte Textbausteine exportieren/importieren</li><li>Mühelose Übertragungen über die optimierte Titelauswahlschnittstelle</li><li>Titelbasierte Filterung beim Export oder Import</li><li>Integrierte <strong>Duplikaterkennung</strong> mit Echtzeit-Warnungen</li></ul></div>
+      <div class="tx-feature-block"><h3>🌍 Mehrsprachige Unterstützung</h3><ul><li>Englisch, Deutsch, Arabisch (العربية)</li><li>Vollständiges Rechts-nach-Links-Layout (RTL) für Arabisch</li><li>Sprache in den Einstellungen ohne Neustart wechseln</li></ul></div>
+      <div class="tx-feature-block"><h3>🌗 Hell &amp; Dunkel Modus</h3><p>Zwischen einer sauberen hellen Oberfläche und einem angenehmen dunklen Design wechseln. Die Einstellung wird automatisch gespeichert und beim nächsten Start angewendet.</p></div>
+      <div class="tx-feature-block"><h3>📖 Eingebaute Anleitung</h3><p>Textory enthält eine In-App-Anleitungsseite. Neue Benutzer können alle Funktionen erlernen, ohne externe Dokumentation zu suchen.</p></div>
+    </div>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" aria-labelledby="oberflaeche-heading">
+    <div class="tx-label">Benutzeroberfläche</div>
+    <h2 id="oberflaeche-heading">Wie die Oberfläche funktioniert</h2>
+    <p>Textory folgt einem klaren, vorhersehbaren Layout. Jedes Fenster hat einen einzigen Zweck – keine versteckten Menüs, keine überfüllten Symbolleisten.</p>
+    <div class="tx-ui-grid">
+      <div class="tx-ui-card"><div class="tx-ui-num">01 · HAUPTFENSTER</div><h3>Ihre Textbaustein-Bibliothek</h3><p>Das Hauptfenster zeigt eine scrollbare Liste aller Karten. Auf der anderen Seite befindet sich eine Vollinhalt-Vorschau der ausgewählten Karte. Suchleiste oben und Gruppenfilter ermöglichen sofortige Einschränkung der Ansicht.</p></div>
+      <div class="tx-ui-card"><div class="tx-ui-num">02 · HINZUFÜGEN / BEARBEITEN</div><h3>Der Editor</h3><p>Ein fokussiertes Bearbeitungsfenster mit Titelfeld, Gruppenauswahl und Rich-Text-Editor. Die Formatierungsleiste bietet Fett, Kursiv, Unterstrichen, Durchgestrichen und Hervorheben. Nach dem Speichern erscheint die Karte sofort in der Hauptliste.</p></div>
+      <div class="tx-ui-card"><div class="tx-ui-num">03 · EINSTELLUNGEN</div><h3>Ihre Einstellungen</h3><p>Speicherort ändern, Sprache wechseln, Theme umschalten, Textbausteine importieren oder exportieren und Gruppen verwalten. Alle Präferenzen werden sofort gespeichert.</p></div>
+    </div>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" aria-labelledby="screenshots-heading">
+    <div class="tx-label">Screenshots</div>
+    <h2 id="screenshots-heading">Textory in Aktion</h2>
+    <p>Klicken Sie auf ein Bild, um es zu vergrößern.</p>
+    <div class="tx-screens-grid">
+      <div class="tx-screen-item"><a href="#lb-1" class="tx-screen-link"><img src="../Screenshots/Main-Interface-Light-Mode-1.png" alt="Hauptoberfläche Hellmodus"></a><div class="tx-screen-caption">Hauptoberfläche · Hellmodus</div></div>
+      <div class="tx-screen-item"><a href="#lb-2" class="tx-screen-link"><img src="../Screenshots/Main-Interface-Dark-Mode-2.png" alt="Hauptoberfläche Dunkelmodus"></a><div class="tx-screen-caption">Hauptoberfläche · Dunkelmodus</div></div>
+      <div class="tx-screen-item"><a href="#lb-3" class="tx-screen-link"><img src="../Screenshots/Rich-Text-Formatting.png" alt="Rich-Text-Formatierung"></a><div class="tx-screen-caption">Rich-Text-Formatierung</div></div>
+      <div class="tx-screen-item"><a href="#lb-4" class="tx-screen-link"><img src="../Screenshots/Setting-4.png" alt="Einstellungsbereich"></a><div class="tx-screen-caption">Einstellungsbereich</div></div>
+      <div class="tx-screen-item"><a href="#lb-5" class="tx-screen-link"><img src="../Screenshots/Select-Snippets-to-Export-Import-5.png" alt="Import/Export"></a><div class="tx-screen-caption">Textbausteine exportieren / importieren</div></div>
+    </div>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" aria-labelledby="anwendung-heading">
+    <div class="tx-label">Anwendungsfälle</div>
+    <h2 id="anwendung-heading">Für wen ist es?</h2>
+    <p>Textory ist für jeden gedacht, dessen tägliche Arbeit das Wiederholen derselben Texte beinhaltet. Wenn Sie sich dabei ertappen, aus einem früheren Chat, einem alten Dokument oder einem Notizzettel zu kopieren, um es woanders einzufügen – ist Textory für Sie.</p>
+    <div class="tx-use-grid">
+      <div class="tx-use-item"><div class="tx-use-icon">🎧</div><div><h3>Technischer Support</h3><p>Standardantworten, Fehlerbehebungsschritte und Eskalationsvorlagen speichern. In einem Klick kopieren und senden.</p></div></div>
+      <div class="tx-use-item"><div class="tx-use-icon">💻</div><div><h3>Programmierer &amp; Entwickler</h3><p>Code-Snippets, Terminal-Befehle, Boilerplate-Blöcke und Konfigurationsvorlagen immer griffbereit halten.</p></div></div>
+      <div class="tx-use-item"><div class="tx-use-icon">🤝</div><div><h3>Kundenservice</h3><p>Konsistente, professionelle Antworten pflegen. Reaktionszeit reduzieren ohne Qualität oder Ton zu opfern.</p></div></div>
+      <div class="tx-use-item"><div class="tx-use-icon">🏢</div><div><h3>Büro &amp; Verwaltung</h3><p>E-Mail-Vorlagen, Besprechungsagenden, Standardklauseln und Formulartexte für den schnellen Tageseinsatz speichern.</p></div></div>
+      <div class="tx-use-item"><div class="tx-use-icon">📓</div><div><h3>Persönliche Produktivität</h3><p>Notizen, Zitate, Ideen und persönliches Referenzmaterial an einem übersichtlichen, durchsuchbaren Ort organisieren.</p></div></div>
+    </div>
+  </section>
+
+  <hr class="tx-divider">
+
+  <div class="tx-privacy">
+    <div class="tx-privacy-icon">🔒</div>
+    <div class="tx-privacy-text">
+      <h2>Ihre Daten bleiben auf Ihrem Gerät</h2>
+      <p>Textory stellt keine Verbindung zum Internet her. Alle Textbausteine werden lokal in Dateien auf Ihrem Gerät gespeichert. Keine Analysen, keine Telemetrie, keine Konten – und keine Möglichkeit für andere, auf Ihre gespeicherten Inhalte zuzugreifen. Ihr Inhalt, vollständig unter Ihrer Kontrolle.</p>
+    </div>
+  </div>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" aria-labelledby="warum-heading">
+    <div class="tx-label">Warum Textory</div>
+    <h2 id="warum-heading">Einfach durch Design</h2>
+    <p>Textory versucht nicht, alles zu tun. Es macht eine Sache gut: wiederverwendbaren Text schnell und privat verwalten.</p>
+    <div class="tx-features-2col">
+      <div class="tx-feature-block"><h3>🪶 Leichtgewichtig</h3><p>Kleine Installationsgröße, minimaler Systemaufwand. Textory läuft ruhig, ohne Speicher zu beanspruchen oder den Computer zu verlangsamen.</p></div>
+      <div class="tx-feature-block"><h3>📡 Vollständig offline</h3><p>Kein Internet erforderlich – nicht für die Einrichtung, nicht für Funktionen, niemals. Funktioniert in eingeschränkten Umgebungen und unterwegs.</p></div>
+      <div class="tx-feature-block"><h3>🚀 Schnelle Interaktion</h3><p>Suche ist sofort. Kopieren ist ein Klick. Die Oberfläche ist direkt – Textory öffnen, finden was gebraucht wird, in Sekunden schließen.</p></div>
+      <div class="tx-feature-block"><h3>📅 Für den täglichen Einsatz gebaut</h3><p>Jede Designentscheidung wurde mit dem täglichen, realen Einsatz im Kopf getroffen. Kein Demo – ein Werkzeug, das dauerhaft in Ihren Workflow gehört.</p></div>
+    </div>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" id="herunterladen" aria-labelledby="download-heading">
+    <div class="tx-download">
+      <h2 id="download-heading">Textory herunterladen</h2>
+      <p>Holen Sie sich die neueste Version direkt von GitHub. Kostenlos für die private Nutzung – kein Konto erforderlich.</p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <a class="tx-btn-download" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.6/Textory_Setup_v3.0.6.msi" target="_blank" rel="noopener" style="width:320px;max-width:100%;">&#8595; Textory v3.0.6 (.msi)</a>
+        <a class="tx-btn-download" href="https://github.com/Nazir-Amr/Textory/releases/download/v3.0.6/Textory_Portable_v3.0.6.exe" target="_blank" rel="noopener" style="width:320px;max-width:100%;">&#8595; Textory Portable v3.0.6 (.exe)</a>
+      </div>
+      <div class="tx-install-note">💡 Windows &middot; Herunterladen, Installer ausführen, und Textory ist bereit. Kein weiteres Setup erforderlich.</div>
+      <p style="margin-top:20px;font-size:0.85em;color:#777;">Auch verfügbar auf &nbsp;<a href="https://github.com/Nazir-Amr/Textory" target="_blank" rel="noopener">GitHub &#8594;</a></p>
+    </div>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" id="lizenz" aria-labelledby="lizenz-heading">
+    <div class="tx-label">Lizenzierung</div>
+    <h2 id="lizenz-heading">Lizenz &amp; Nutzungsbedingungen</h2>
+    <p>Textory wird unter einem Endbenutzer-Lizenzvertrag (EULA) vertrieben. Die Software hat keine technischen Einschränkungen – bitte nutzen Sie sie verantwortungsbewusst und innerhalb der folgenden Bedingungen.</p>
+    <div class="tx-license-grid">
+      <div class="tx-license-card tx-license-free"><h3>✅ Privatnutzung – Kostenlos</h3><ul><li>Keine Kosten, keine Registrierung</li><li>Vollständiger Zugang zu allen Funktionen</li><li>Keine technischen Einschränkungen</li></ul></div>
+      <div class="tx-license-card tx-license-paid"><h3>💼 Kommerzielle Nutzung – Kostenpflichtig</h3><ul><li>Erfordert eine kostenpflichtige Lizenz</li><li>Entwickler für Genehmigung kontaktieren</li><li>Offizielle Genehmigung vor der Nutzung einholen</li></ul></div>
+    </div>
+    <div class="tx-feature-block" style="margin-top:16px;border-left-color:#c0392b;background:#fdf6f6;"><h3>Unter keiner Lizenz erlaubt</h3><ul><li>Weiterverkauf oder Weitergabe ohne schriftliche Genehmigung</li><li>Modifizieren, Dekompilieren oder Reverse Engineering der Software</li><li>Nutzung der Software unter Verstoß gegen geltendes Recht</li></ul></div>
+    <p style="margin-top:14px;font-size:0.87em;color:#666;">Die Software wird „WIE BESEHEN" ohne jegliche Garantie bereitgestellt. Der Entwickler haftet nicht für Datenverlust oder Schäden, die aus der Nutzung entstehen.</p>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" aria-labelledby="richtlinien-heading">
+    <div class="tx-label">Richtlinien</div>
+    <h2 id="richtlinien-heading">Nutzungsrichtlinie &amp; Haftungsausschluss</h2>
+    <div class="tx-features-2col">
+      <div class="tx-feature-block"><h3>Nutzungsrichtlinie</h3><p>Durch die Nutzung von Textory übernehmen Sie die volle Verantwortung für die in der Anwendung gespeicherten Inhalte. Der Entwickler haftet nicht für Datenverlust, Missbrauch oder Schäden, die aus der Nutzung entstehen. Textory muss jederzeit legal und ethisch korrekt verwendet werden.</p></div>
+      <div class="tx-feature-block"><h3>Haftungsausschluss</h3><p>Die Software wird auf eigenes Risiko verwendet. Der Entwickler garantiert nicht, dass Textory in allen Umgebungen, Hardwarekonfigurationen oder Betriebssystemversionen fehlerfrei funktioniert.</p></div>
+    </div>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" aria-labelledby="ueber-heading">
+    <div class="tx-label">Über</div>
+    <h2 id="ueber-heading">Über den Entwickler</h2>
+    <p>Textory wurde von <strong>Nazir Amr</strong> mit einem klaren Ziel entwickelt: einen einfachen, zuverlässigen Weg zur Verwaltung wiederverwendbarer Texte zu bieten – ohne unnötige Komplexität oder externe Abhängigkeiten.</p>
+    <p>Die Idee entstand aus realer, alltäglicher Arbeit, bei der Geschwindigkeit, Konsistenz und Organisation wichtig sind. Anstatt auf Cloud-basierte Tools oder aufgeblähte Plattformen zu setzen, ist Textory so konzipiert, dass es lokal funktioniert und Benutzern die volle Kontrolle über ihre eigenen Daten gibt.</p>
+    <p>Jeder Teil der Anwendung wurde mit Pragmatismus im Kopf entwickelt – die leichtgewichtige Struktur, die saubere Oberfläche und der schnelle Zugriff auf gespeicherte Inhalte. Das Ziel war nie, um des Features willen mehr Funktionen hinzuzufügen, sondern die richtigen Funktionen effizient und zugänglich bereitzustellen.</p>
+  </section>
+
+  <hr class="tx-divider">
+
+  <section class="tx-section" id="kontakt" aria-labelledby="kontakt-heading">
+    <div class="tx-label">Kontakt</div>
+    <h2 id="kontakt-heading">Kontakt &amp; Nachricht senden</h2>
+    <p>Für Lizenzanfragen, Supportfragen oder allgemeines Feedback – verbinden Sie sich über LinkedIn oder füllen Sie das folgende Formular aus und ich melde mich so bald wie möglich.</p>
+    <div class="tx-contact-row" style="margin-bottom:28px;">
+      <div class="tx-contact-item"><div class="tx-icon">🔗</div><h3>LinkedIn</h3><a href="https://www.linkedin.com/in/nazir-amr" target="_blank" rel="noopener">linkedin.com/in/nazir-amr</a></div>
+    </div>
+    <div class="tx-form-wrap">
+      <form action="https://formspree.io/f/mjgjdprd" method="POST">
+        <input type="hidden" name="_subject" value="Neue Nachricht von Textory">
+        <input type="hidden" name="_redirect" value="https://nazir-amr.github.io/Textory/thank-you.html">
+        <div class="tx-gotcha" aria-hidden="true"><label>Dieses Feld nicht ausfüllen: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+        <div class="tx-form-row">
+          <div class="tx-form-group"><label for="tx-name">Ihr Name <span style="color:#c0392b;">*</span></label><input type="text" id="tx-name" name="name" placeholder="Ihr Name" required autocomplete="name"></div>
+          <div class="tx-form-group"><label for="tx-email">E-Mail-Adresse <span style="color:#c0392b;">*</span></label><input type="email" id="tx-email" name="email" placeholder="sie@beispiel.de" required autocomplete="email"></div>
+        </div>
+        <div class="tx-form-group"><label for="tx-message">Nachricht <span style="color:#c0392b;">*</span></label><textarea id="tx-message" name="message" placeholder="Schreiben Sie Ihre Nachricht hier…" required></textarea></div>
+        <button type="submit" class="tx-form-submit">&#9993;&nbsp; Nachricht senden</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="tx-footer">
+    <p><strong>Textory</strong> · Intelligentes &amp; effizientes Textmanagement · v3.0.6</p>
+    <p>Kostenlos für die private Nutzung &middot; Kommerzielle Nutzung erfordert eine Lizenz</p>
+    <p style="margin-top:10px;font-size:0.8em;">Textory wird unabhängig entwickelt. Alle Rechte vorbehalten unter seinem EULA.</p>
+  </footer>
+</div>
+</body>
+</html>
