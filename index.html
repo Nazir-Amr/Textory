@@ -26,8 +26,8 @@
        One URL serves all languages via in-app language switching
   ══════════════════════════════════════════════════════════ -->
   <link rel="alternate" hreflang="en"        href="https://nazir-amr.github.io/Textory/">
-  <link rel="alternate" hreflang="de"        href="https://nazir-amr.github.io/Textory/">
-  <link rel="alternate" hreflang="ar"        href="https://nazir-amr.github.io/Textory/">
+  <link rel="alternate" hreflang="de"        href="https://nazir-amr.github.io/Textory/de/">
+  <link rel="alternate" hreflang="ar"        href="https://nazir-amr.github.io/Textory/ar/">
   <link rel="alternate" hreflang="x-default" href="https://nazir-amr.github.io/Textory/">
 
   <!-- ══════════════════════════════════════════════════════════
@@ -127,21 +127,41 @@
   <meta name="google-site-verification" content="ZSYB_mi1JxTbiclSeubW8IMr9zVpK4jzSB_kwmw13Js">
 
   <!-- ══════════════════════════════════════════════════════════
-       FAVICON
+       FAVICON — All formats for browser tabs, bookmarks,
+       mobile home screens, and Google search results
   ══════════════════════════════════════════════════════════ -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="msapplication-TileColor" content="#1a6fad">
+  <meta name="msapplication-TileImage" content="mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- ══════════════════════════════════════════════════════════
+       GOOGLE FONTS — Inter (Modern, Clean, Highly Readable)
+       Free font — no licensing issues
+  ══════════════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   /* ── Reset & Base ── */
   .tx-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
   .tx-wrap {
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     color: #1a1a2e;
     line-height: 1.7;
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* ── Typography ── */
@@ -595,7 +615,7 @@
   .tx-form-group input,
   .tx-form-group textarea {
     width: 100%;
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.95em;
     color: #1a1a2e;
     background: #fff;
@@ -635,7 +655,7 @@
     justify-content: center;
     background: #1a6fad;
     color: #fff;
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.95em;
     font-weight: 700;
     padding: 13px 32px;
